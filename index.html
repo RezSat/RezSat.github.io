@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Welcome to Portfolio of RezSat - Yehan Wasura.">
+      <title>Yehan Wasura - Portfolio</title>
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <style>
+         body {
+         font: 16px "Indie Flower";
+         color: #eee;
+         width: 100%;
+         height: 100%;
+         margin: 0;
+         padding: 0;
+         background-color: #333;
+         }
+         h1 {
+         font-size: 2.5em;
+         }
+         h2 {
+         font-size: 2.25em;
+         }
+         h3 {
+         font-size: 2em;
+         }
+         h4 {
+         font-size: 1.75em;
+         }
+         p {
+         font-size: 1.5em;
+         }
+         h1, h2, h3, h4, p {
+         line-height: 1.375em;
+         }
+         a {
+         color: #eda790;
+         -webkit-text-decoration-style: dashed;
+         text-decoration-style: dashed;
+         }
+         .content {
+         margin: auto;
+         width: 70%;
+         padding: 10px;
+         }
+         .section {
+         display: none;
+         padding: 10px;
+         }
+         .back {
+         display: inline-block;
+         cursor: pointer;
+         border: 2px dashed #eda790;
+         color: #eda790;
+         text-decoration: none;
+         font-size: 16px;
+         font-weight: bold;
+         transition: border-color 0.3s ease;
+         padding: 10px 20px;
+         background-color: #333;
+         }
+         .back:hover {
+         border-color: #e58564;
+         color: #e58564;
+         }
+      </style>
+   </head>
+   <body>
+      <section class="section" id="home" style="display:block;">
+         <div class="content">
+            <h1>Ah! Hello there, welcome to my super cool portfolio. My frontend skills are sick, aren't they?</h1>
+            <h2><a href="#about" onclick="showSection('about')">Click here,</a> to know who the hell I am.</h2>
+            <h2><a href="#projects" onclick="showSection('projects')">Click here,</a> to see my sick skills</h2>
+            <h2><a href="#contacts" onclick="showSection('contacts')">Click here,</a> to find me in more places</h2>
+            <h3> Yup that's pretty much it, Enjoy!</h3>
+         </div>
+      </section>
+      <section class="section" id="about">
+         <div class="content">
+            <button onclick="showSection('home')" class="back"> Go back </button>
+            <h2>My name is Yehan Wasura, and I'm from Sri Lanka</h2>
+            <br>
+            <h4>
+            I enjoy diving deep into systems, despite the tedious tasks, for the invaluable rewards of knowledge and experience. While frontend work isn't my cup of tea (much respect to frontend devs!), I excel in Backend-Web dev. I'm passionate about Mathematics, Physics, and exploring areas like Machine Learning and AI.<br><br>
+               My love for cybersecurity and low-level programming, including reverse engineering and compiler/interpreter development, keeps me intrigued. Python, C, and Linux (especially Arch) are my go-to tools, and I'm a Vim enthusiast, occasionally using Sublime-Text or VSCode (when stuck on Windows).
+               </h4>
+               <br>
+               <h3 style="color:#eda790">A little more to waste your time ....</h3><br>
+            <h4>As far as I can remember, I wrote my first line of code when I was around 8 or 9 years old (circa 2012). However, I had no idea what I was doing at the time because it was part of our school curriculum to teach us the Logo Programming language, that turtle-moving thing. <br><br>
+               Later on, in school, they taught us QBasic, HTML, CSS, and Pascal ( I was little good at those unknowingly, but didn't really give much thought to as what they really are).<br><br>
+               It wasn't until around 2017 that my interest in programming and computer science really peaked, thanks to a genius friend in my class. Since then, I've embraced this passion, you can call it whatever you want. 
+               <br>
+               <br>
+               
+            </h4>
+            <p>
+               In my downtime, I enjoy Chess, Badminton, reading light novels, watching anime, and oddly enough, I'm a proficient swimmer (no idea why I'm mentioning these things here).
+            </p>
+	    <br>
+	    <button onclick="showSection('home')" class="back"> Go back </button>
+         </div>
+      </section>
+      <section class="section" id="projects">
+         <div class="content">
+            <button onclick="showSection('home')" class="back"> Go back </button>
+            <p>I'll Update this later.</p>
+         </div>
+      </section>
+      <section class="section" id="contacts">
+         <div class="content">
+            <button onclick="showSection('home')" class="back"> Go back </button>
+            <h2><a href="https://github.com/RezSat/"><i class="fa-brands fa-github"></i> - GitHub </a></h2>
+            <h2><a href="https://www.instagram.com/yehanwasura"><i class="fa-brands fa-square-instagram"></i> - Instagram </a> (account exists but don't really use) </h2>
+            <h2><a href="https://twitter.com/rezsat"><i class="fa-brands fa-x-twitter"></i> - X </a> (formerly Twitter) </h2>
+            <h2><a href="https://www.linkedin.com/in/yehan-wasura-1222582b1/"><i class="fa-brands fa-linkedin"></i> - LinkedIn </a></h2>
+            <h2><a href="https://medium.com/@failuredocumentary"><i class="fa-brands fa-medium"></i> - Medium </a> </h2>
+            <h2 style="color:#eda790"><i class="fa-brands fa-discord"></i> - Discord (User Id) :</h2><p> #723579239751876639</p>
+	    <h2 style="color:#eda790"><i class="fa-brands fa-discord"></i> - Discord (Username) :</h2><p> rezsat </p>
+	    <br>
+	    <button onclick="showSection('home')" class="back"> Go back </button>
+         </div>
+      </section>
+      <script type="text/javascript">
+         var current_section = "home";
+         function showSection(sectionId) {
+                document.getElementById(current_section).style.display = 'none';
+                document.getElementById(sectionId).style.display = 'block';
+                current_section = sectionId;
+            }
+            
+         
+      </script>
+   </body>
+</html>
