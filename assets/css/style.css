@@ -33,6 +33,150 @@ body {
   transition: transform 0.2s ease;
 }
 
+.main-nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link-number {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+}
+
+.nav-link-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover .nav-link-text::after {
+  transform: translateX(0);
+}
+
+.nav-indicator {
+  position: absolute;
+  left: -1rem;
+  width: 3px;
+  height: 20px;
+  background-color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.nav-progress {
+  position: absolute;
+  right: -2rem;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-accent);
+  transition: height 0.3s ease;
+}
+
+.menu-trigger {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+  mix-blend-mode: difference;
+  z-index: 101;
+}
+
+.menu-trigger span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.menu-trigger span:first-child {
+  top: 0;
+}
+
+.menu-trigger span:last-child {
+  bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg);
+    padding: 5rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .main-nav.active {
+    transform: translateX(0);
+  }
+
+  .menu-trigger {
+    display: block;
+  }
+
+  .menu-trigger.active span:first-child {
+    top: 50%;
+    transform: rotate(45deg);
+  }
+
+  .menu-trigger.active span:last-child {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+}
+
 .floating-alias {
   position: fixed;
   top: 2rem;
