@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of RezSat - Yehan Wasura">
-    <title>Yehan Wasura - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <meta name="description" content="Yehan Wasura - Systems Developer & Reverse Engineer">
+    <title>Yehan Wasura</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
+    <link href="https://api.fontshare.com/v2/css?f[]=space-grotesk@700,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="theme-color" content="#0a0a0a">
         :root {
             --neon-text-color: #f40;
             --neon-border-color: #08f;
@@ -304,24 +306,16 @@
                 font-size: 1em;
             }
         }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="glitch-wrapper">
-            <div class="glitch">
-                Yehan Wasura
-                <span>Yehan Wasura</span>
-                <span>Yehan Wasura</span>
-            </div>
+    <div class="cursor"></div>
+    
+    <section class="hero">
+        <div>
+            <h1 class="hero__title">Yehan<br>Wasura</h1>
+            <p class="hero__subtitle">Systems Developer & Reverse Engineer</p>
         </div>
-
-        <div class="nav-menu">
-            <button class="nav-button" onclick="showSection('about')">About</button>
-            <button class="nav-button" onclick="showSection('skills')">Skills</button>
-            <a href="https://yehanwasura-projects.vercel.app/"><button class="nav-button" >Projects</button></a>
-            <button class="nav-button" onclick="showSection('contact')">Contact</button>
-        </div>
+    </section>
 
         <div id="about" class="section">
             <div class="terminal-text" style="color:var(--neon-border-color);">
