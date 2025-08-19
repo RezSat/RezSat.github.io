@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yehan Wasura - Systems Developer & Reverse Engineer">
+    <title>Yehan Wasura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=space-grotesk@700,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="theme-color" content="#0a0a0a">
+        :root {
+            --neon-text-color: #f40;
+            --neon-border-color: #08f;
+            --main-bg-color: #0a0a0a;
+            --text-color: #0f0;
+            --secondary-color: #ff0055;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glitch-wrapper {
+            position: relative;
+            margin: 40px 0;
+            text-align: center;
+            user-select: none;
+        }
+
+        .glitch {
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                         0.025em 0.04em 0 #fffc00;
+            animation: glitch 725ms infinite;
+        }
+
+        .glitch span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                            0.025em 0.04em 0 #fffc00;
+            }
+            15% {
+                text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+                            0.025em 0.04em 0 #fffc00;
+            }
+            16% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                            -0.05em -0.05em 0 #fffc00;
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+                            -0.05em -0.05em 0 #fffc00;
+            }
+            50% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                            0 -0.04em 0 #fffc00;
+            }
+            99% {
+                text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+                            0 -0.04em 0 #fffc00;
+            }
+            100% {
+                text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+                            -0.04em -0.025em 0 #fffc00;
+            }
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: transparent;
+            border: 2px solid var(--neon-border-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(8, 136, 255, 0.2),
+                transparent
+            );
+            transition: all 0.5s;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            box-shadow: 0 0 10px var(--neon-border-color);
+            text-shadow: 0 0 5px var(--text-color);
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .terminal-text {
+            border: 1px solid var(--text-color);
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            background: rgba(0, 255, 0, 0.05);
+        }
+
+        .terminal-text::before {
+            content: '> ';
+            color: var(--text-color);
+        }
+
+        .skills-category {
+            margin: 30px 0;
+        }
+
+        .skills-category h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--text-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .skill-item {
+            border: 1px solid var(--text-color);
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+            background: rgba(0, 255, 0, 0.05);
+            white-space: normal;
+            flex: 1 1 150px;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            border: 1px solid var(--text-color);
+            padding: 20px;
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .project-link:hover {
+            background: var(--text-color);
+            color: var(--main-bg-color);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid var(--text-color);
+            background: rgba(0, 255, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .social-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+
+        .social-item i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .glitch {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .glitch {
+                font-size: 1.5em;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+
+            .skill-item {
+                flex: 1 1 100px;
+                padding: 10px;
+            }
+
+            .project-card {
+                padding: 15px;
+            }
+
+            .social-item {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+</head>
+<body>
+    <div class="cursor"></div>
+    
+    <section class="hero">
+        <div>
+            <h1 class="hero__title">Yehan<br>Wasura</h1>
+            <p class="hero__subtitle">Systems Developer & Reverse Engineer</p>
+        </div>
+    </section>
+
+        <div id="about" class="section">
+            <div class="terminal-text" style="color:var(--neon-border-color);">
+                Before going any further: Yes, I'm self-taught, and fuck you if you want to be such a jerk about it. <p style="color:red;">(Ignore if you don't)</p>
+            </div>
+            <div class="terminal-text">
+                Hello World! I'm Yehan Wasura, a developer from Sri Lanka who loves diving deep into systems.
+                While I initially wasn't into frontend work, I've grown to appreciate and excel at it alongside my backend expertise.
+                My passion lies in Mathematics, Physics, Machine Learning, and AI.
+            </div>
+            <div class="terminal-text">
+                I'm deeply fascinated by cybersecurity and low-level programming, particularly reverse engineering and compiler/interpreter development.
+                Python, C, JavaScript, Linux (especially Arch), VSCode (or Code-OSS), and Vim are my primary tools
+            </div>
+            <div class="terminal-text">
+                I started coding around 2012 with Logo Programming, progressed through QBasic, HTML, CSS, and Pascal,
+                but my real journey began in 2017 when a genius classmate sparked my interest in computer science.
+            </div>
+            <div class="terminal-text">
+                When I'm not coding or reverse engineering, you'll find me playing Chess, Badminton, reading light novels,
+                watching anime, or swimming (yes, I'm a fairly good swimmer).
+            </div>
+        </div>
+
+        <div id="skills" class="section">
+            <div class="skills-category">
+                <h2>Languages (Programming/ Scripting/ Markup/ Whatever) :</h1></h2>
+                <div class="skill-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">C</div>
+                    <div class="skill-item">C++</div>
+                    <div class="skill-item">Assembly</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">TypeScript</div>
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">PHP</div>
+                    <div class="skill-item">Bash</div>
+                    <div class="skill-item">Visual Basic</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Frameworks & Libraries</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">Matplotlib</div>
+                    <div class="skill-item">SymPy</div>
+                    <div class="skill-item">Flask</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">Next.js</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">React Native</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Development Tools</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">Vim</div>
+                    <div class="skill-item">Neovim</div>
+                    <div class="skill-item">VSCode</div>
+                    <div class="skill-item">Sublime Text</div>
+                    <div class="skill-item">Pycharm</div>
+                    <div class="skill-item">Android Studio</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Postman</div>               
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Security & Analysis Tools</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">Ghidra</div>
+                    <div class="skill-item">IDA Pro</div>
+                    <div class="skill-item">BurpSuite</div>
+                    <div class="skill-item">WireShark</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Design & Creative Tools</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">Canva</div>
+                    <div class="skill-item">Figma</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>More specifics</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">Wordpress</div>
+                    <div class="skill-item">Godot Engine</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="section">
+            <div class="project-grid">
+                <div class="project-card">
+                    <div>
+                        <h3>Ceylonicus</h3>
+                        <p>First Sinhala Programming Language</p>
+                    </div>
+                    <a href="https://github.com/RezSat/Ceylonicus" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>InMan</h3>
+                        <p>Inventory Management System (InMan) is designed to manage and track inventory owned by employees at E.T.F.B</p>
+                    </div>
+                    <a href="https://github.com/RezSat/InMan" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>Ike</h3>
+                        <p>An AI Answer engine</p>
+                    </div>
+                    <a href="https://github.com/RezSat/ike" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>FEP</h3>
+                        <p>Flexible Expression Parser</p>
+                    </div>
+                    <a href="https://github.com/RezSat/fep" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>Y# (Y-Sharp)</h3>
+                        <p>A toy programming language</p>
+                    </div>
+                    <a href="https://github.com/RezSat/Ysharp-v4" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>Mathematishia</h3>
+                        <p>Computer Algebra System with step-by-step solutions</p>
+                    </div>
+                    <a href="https://github.com/RezSat/mathematishia" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>Mathema</h3>
+                        <p>A Mathematical Programming Language</p>
+                    </div>
+                    <a href="https://github.com/RezSat/mathemapy" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3>Fix My Text</h3>
+                        <p>A simple tool to remap Sinhala text from corrupted formats to proper Unicode.</p>
+                    </div>
+                    <a href="https://rezsat.github.io/fixmytext" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="section">
+            <div class="social-grid">
+                <a href="https://github.com/RezSat/" class="social-item">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/yehanwasura" class="social-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://twitter.com/rezsat" class="social-item">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <span>Twitter/X</span>
+                </a>
+                <a href="https://www.linkedin.com/in/yehan-wasura-1222582b1/" class="social-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://medium.com/@rezsat" class="social-item">
+                    <i class="fa-brands fa-medium"></i>
+                    <span>Medium</span>
+                </a>
+                <div class="social-item">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>rezsat (#723579239751876639)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Add typing animation to terminal texts
+            const terminalTexts = selectedSection.querySelectorAll('.terminal-text');
+            terminalTexts.forEach((terminal, index) => {
+                terminal.style.opacity = '0';
+                setTimeout(() => {
+                    terminal.style.opacity = '1';
+                }, index * 200);
+            });
+        }
+
+        // Show about section by default
+        showSection('about');
+    </script>
+</body>
+</html>
