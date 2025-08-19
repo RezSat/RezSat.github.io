@@ -131,6 +131,16 @@ body {
   color: var(--color-accent);
 }
 
+/* Ensure project card links inherit text color */
+a.card {
+  color: var(--color-text);
+}
+
+a.card p {
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
 @keyframes fadeUp {
   to {
     opacity: 1;
