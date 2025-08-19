@@ -33,6 +33,26 @@ body {
   transition: transform 0.2s ease;
 }
 
+.floating-alias {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+  font-size: 1rem;
+  z-index: 100;
+  mix-blend-mode: difference;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.floating-alias:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 .hero {
   height: 100vh;
   display: flex;
