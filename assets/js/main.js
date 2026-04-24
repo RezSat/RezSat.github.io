@@ -42,14 +42,21 @@ menuTrigger?.addEventListener('click', () => {
 
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-        
-        if (window.innerWidth <= 768) {
-            menuTrigger.classList.remove('active');
-            nav.classList.remove('active');
-        }
+        const href = link.getAttribute('href');
+
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            if (window.innerWidth <= 768) {
+                menuTrigger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        } 
     });
 });
 

@@ -1,0 +1,16 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#0A0A0A"/>
+  <circle cx="260" cy="240" r="210" fill="#00FF95" fill-opacity="0.18"/>
+  <circle cx="930" cy="610" r="300" fill="#00FF95" fill-opacity="0.10"/>
+  <path d="M170 640C330 430 460 780 630 520C790 280 910 430 1030 250" stroke="#00FF95" stroke-width="10" stroke-linecap="round"/>
+  <path d="M190 690C350 480 480 830 650 570C810 330 930 480 1050 300" stroke="white" stroke-width="2" stroke-opacity="0.35" stroke-linecap="round"/>
+  <g fill="#00FF95" fill-opacity="0.85">
+    <circle cx="235" cy="210" r="5"/>
+    <circle cx="380" cy="520" r="4"/>
+    <circle cx="515" cy="395" r="6"/>
+    <circle cx="705" cy="585" r="4"/>
+    <circle cx="870" cy="355" r="5"/>
+    <circle cx="990" cy="245" r="4"/>
+  </g>
+  <text x="80" y="810" fill="#00FF95" font-family="monospace" font-size="42">OPENPROCESSING SKETCH</text>
+</svg>

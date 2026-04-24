@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art | Yehan Wasura</title>
+    <meta name="description" content="Creative coding and generative art sketches by Yehan Wasura.">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="canonical" href="https://rezsat.github.io/art/">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://api.fontshare.com/v2/css?f[]=space-grotesk@700,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        .art-shell {
+            width: min(1180px, calc(100% - 10vw));
+            margin: 0 auto;
+            padding: 8rem 0 5rem;
+        }
+
+        .art-header {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .art-kicker,
+        .art-back,
+        .art-card__button,
+        .art-empty {
+            font-family: var(--font-mono);
+        }
+
+        .art-kicker,
+        .art-back {
+            color: var(--color-accent);
+        }
+
+        .art-back {
+            width: max-content;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .art-back:hover {
+            opacity: 1;
+            transform: translateX(-4px);
+        }
+
+        .art-title {
+            font-size: clamp(3rem, 12vw, 8rem);
+            line-height: 0.9;
+            max-width: 900px;
+        }
+
+        .art-intro {
+            color: rgba(255,255,255,0.72);
+            max-width: 680px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .art-card {
+            position: relative;
+            display: grid;
+            gap: 1.25rem;
+            padding: 1rem;
+            color: var(--color-text);
+            text-decoration: none;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .art-card::before {
+            content: '';
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top left, rgba(0,255,149,0.18), transparent 35%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .art-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-accent);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .art-card:hover::before {
+            opacity: 1;
+        }
+
+        .art-card__image-wrap {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .art-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .art-card:hover .art-card__image {
+            transform: scale(1.05);
+        }
+
+        .art-card__content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .art-card__title {
+            font-family: var(--font-mono);
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+
+        .art-card__description {
+            color: rgba(255,255,255,0.68);
+            min-height: 3rem;
+        }
+
+        .art-card__button {
+            width: max-content;
+            color: var(--color-bg);
+            background: var(--color-accent);
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .art-empty {
+            grid-column: 1 / -1;
+            padding: 2rem;
+            color: rgba(255,255,255,0.72);
+            border: 1px dashed rgba(0,255,149,0.45);
+            background: rgba(0,255,149,0.04);
+        }
+
+        @media (max-width: 768px) {
+            .art-shell {
+                width: min(100% - 2rem, 1180px);
+                padding-top: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <main class="art-shell">
+        <header class="art-header">
+            <a href="/" class="art-back">&larr; Back home</a>
+            <p class="art-kicker">Creative Coding / OpenProcessing</p>
+            <h1 class="art-title">Living Art Experiments</h1>
+            <p class="art-intro">A growing gallery of generative sketches, shader studies, particles, light, dust, glass, and other tiny computational experiments.</p>
+        </header>
+
+        <section class="art-grid" data-art-grid aria-label="Art sketches"></section>
+    </main>
+
+    <script src="/art/art.js"></script>
+</body>
+</html>
